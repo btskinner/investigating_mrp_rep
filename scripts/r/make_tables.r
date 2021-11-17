@@ -16,7 +16,6 @@ args <- commandArgs(trailingOnly = TRUE)
 root <- ifelse(length(args) == 0, file.path("..", ".."), args)
 dat_dir <- file.path(root, "data", "clean")
 est_dir <- file.path(root, "data", "estimates")
-crw_dir <- file.path(root, "data", "crosswalks")
 ext_dir <- file.path(root, "data", "external")
 fig_dir <- file.path(root, "figures")
 sta_dir <- file.path(root, "scripts", "stan")
@@ -89,7 +88,7 @@ pc <- read_dta(file.path(dat_dir, "poststrat_counts.dta")) %>%
            gpa_cat = add_gpa_cats_short(gpa_cat))
 
 ## survey counts
-ids <- read_dta(file.path(crw_dir, "main_crosswalk.dta")) %>%
+ids <- read_dta(file.path(dat_dir, "main_crosswalk.dta")) %>%
     distinct(id) %>%
     pull
 
