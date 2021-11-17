@@ -4,6 +4,7 @@
 # folders
 # -------------
 /data
+/tables/*.tex
 
 # -------------
 # TeX
