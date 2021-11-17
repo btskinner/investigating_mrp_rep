@@ -11,13 +11,6 @@
 #
 ################################################################################
 
-# --- settings -----------------------------------
-
-# stata path (you may need to change this for your machine)
-# stata := /usr/local/bin/stata-mp
-
-# print-%  : ; @echo $* = $($*)
-
 # --- directories --------------------------------
 
 # get root of project (current directory)
@@ -31,7 +24,6 @@ DIR_CLEAN := $(DIR_DATA)/clean
 DIR_SCRIPT := scripts
 DIR_R      := $(DIR_SCRIPT)/r
 DIR_STAN   := $(DIR_SCRIPT)/stan
-# DIR_STATA  := $(DIR_SCRIPT)/stata
 
 # model output
 DIR_EST := $(DIR_DATA)/estimates
@@ -61,9 +53,6 @@ DAT_RPRED := $(DIR_EST)/predictions.rds
 DAT_RSTAN := $(DIR_CLEAN)/stan_dat_q3_1.Rdump
 DAT_STATA := $(DIR_CLEAN)/analysis_data.dta
 DAT_SECLV := $(DIR_CLEAN)/second_level_df.rds
-
-# scripts
-# SCR_STATA := $(wildcard $(DIR_STATA)/*.do)
 
 # figures
 FIGS := $(DIR_FIG)/ranked_posterior_overall_lines.pdf
@@ -172,6 +161,6 @@ $(DOCS): $(DIR_DOC)/tables_figures.tex $(TABS) $(FIGS) $(MACROS) $(LABELS)
 
 clean:
 	@echo "\n==> Returning repo to initial state\n"	
-	$(RM) -r $(DIR_EST)/* $(DIR_FIG) $(DIR_TAB) $(DIR_CLEAN)/*
+	$(RM) -r $(DIR_EST)/* $(DIR_CLEAN)/*
 	$(RM) $(DIR_DOC)/tables_figures.pdf $(DIR_STAN)/mrp
 	@echo "Clean!\n"
