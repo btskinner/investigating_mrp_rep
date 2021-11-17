@@ -161,6 +161,6 @@ $(DOCS): $(DIR_DOC)/tables_figures.tex $(TABS) $(FIGS) $(MACROS) $(LABELS)
 
 clean:
 	@echo "\n==> Returning repo to initial state\n"	
-	$(RM) -r $(DIR_EST)/* $(DIR_CLEAN)/*
+	$(RM) -r $(DIR_EST)/* 
 	$(RM) $(DIR_DOC)/tables_figures.pdf $(DIR_STAN)/mrp
 	@echo "Clean!\n"
