@@ -1,0 +1,251 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% [ PROJ ] Helios MRP
+% [ FILE ] paper.tex
+% [ AUTH ] Justin Ortagus, Benjamin Skinner, & Melvin Tanner
+% [ INIT ] 3 March 2020
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ------------------------------------------------------------------------------
+% SETTINGS
+% ------------------------------------------------------------------------------
+
+% class and font size
+\documentclass[12pt]{article}
+
+% packages
+\usepackage[margin=1in]{geometry} % margins
+\usepackage[T1]{fontenc}          % fonts
+\usepackage[utf8]{inputenc}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathptmx}
+\usepackage[american]{babel}      % bibliography
+\usepackage{csquotes}
+\usepackage[style=apa,          
+backend=biber,
+sortcites=true,
+doi=false,
+isbn=false,
+url=false,
+language=american]{biblatex}
+\usepackage{tabularx}             % tables
+\usepackage{booktabs}
+\usepackage{rotating}
+\usepackage{longtable}
+\usepackage{dcolumn}
+\usepackage{rotating}
+\usepackage{caption}
+\usepackage{graphicx}             % graphics
+\usepackage[linktocpage=true]{hyperref}             % links
+\usepackage{setspace}             % spacing options
+\usepackage{fancyhdr}             % header & footer options
+\usepackage{datetime}             % better date
+\usepackage[inline]{enumitem}     % better lists
+\usepackage{appendix}             % appendix
+% \usepackage[nolists,              % endfloat tables & figures
+% tablesfirst,
+% nomarkers]{endfloat}
+\usepackage{verbatim}             % verbatim input for code
+\usepackage{pgffor}
+
+% directories
+\newcommand{\rootpath}{..}
+\newcommand{\figdir}{\rootpath/figures}
+\newcommand{\tabdir}{\rootpath/tables}
+\newcommand{\bibdir}{\rootpath/docs}
+\newcommand{\stndir}{\rootpath/scripts/stan}
+\newcommand{\bibfile}{\bibdir/sources.bib}
+
+% better date
+\newdateformat{mydate}{\THEDAY\, \monthname[\THEMONTH]\, \THEYEAR}
+
+% turn off endfloat newpage after each figure
+% \renewcommand{\efloatseparator}{\mbox{}}
+
+% graphics path for \includegraphics
+\graphicspath{{\figdir/}}
+
+% float figure captions left
+\captionsetup{justification=raggedright,singlelinecheck=false}
+
+% include longtable as delayed float
+\newenvironment{fnslongtable}{\footnotesize}{}
+\newenvironment{scslongtable}{\scriptsize}{}
+% \DeclareDelayedFloatFlavour*{fnslongtable}{table}
+% \DeclareDelayedFloatFlavour*{scslongtable}{table}
+
+% caption sizes
+\captionsetup{font=normalsize}
+
+% bibliography
+\addbibresource{\bibfile}
+
+% Commands
+\newcommand{\RR}{\raggedright\arraybackslash}
+\newcommand{\RL}{\raggedleft\arraybackslash}
+\newcommand{\CT}{\centering\arraybackslash}
+\newcommand{\bX}{\boldsymbol{X}}
+\newcommand{\bZ}{\boldsymbol{Z}}
+\newcommand{\bbeta}{\boldsymbol{\beta}}
+\newcommand{\bgamma}{\boldsymbol{\gamma}}
+
+% ------------------------------------------------------------------------------
+% HEADER
+% ------------------------------------------------------------------------------
+
+\title{Tables \& Figures \\
+  {\normalsize Investigating why academically successful community
+    college students leave college without a degree}}
+\date{\mydate\today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% BEGIN DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\begin{document}
+\pagenumbering{gobble}
+% \maketitle
+% \listoftables
+% \listoffigures
+
+% ==============================================================================
+% TABLE: counts example
+% ==============================================================================
+
+\input{\tabdir/count_tab.tex}
+
+% ==============================================================================
+% TABLE: demographics example
+% ==============================================================================
+\clearpage
+\input{\tabdir/demo_tab.tex}
+
+% ==============================================================================
+% FIGURE: ranked posterior
+% ==============================================================================
+
+\begin{figure*}[!ht]
+  \includegraphics[width = \linewidth]{ranked_posterior_overall_lines.pdf}
+  \caption[Factors contributing to early exit from college]{Each row
+    represents a cited factor in early exit. Factors are grouped into
+    four broad categories (indicated by shape and color). The center
+    shape represents the median of the poststratified posterior
+    density, which is interpretable as the percentage of students
+    selecting the factor as having contributed to their early
+    exit. The thick and thin lines around each median value represent
+    the 50\% and 95\% credible intervals, respectively.}
+  \label{fig:postrank}
+\end{figure*}
+
+% ==============================================================================
+% FIGURE: ranked posterior (subgroups)
+% ==============================================================================
+  
+\begin{figure*}[!ht]
+  \includegraphics[width = \linewidth]{ranked_posterior_groups_lines_combined_1.pdf}
+  \caption[Factors contributing to early exit from college, by
+  groups]{Each row represents a cited factor in early exit. The center
+    shape represents the median of the poststratified posterior
+    density, which is interpretable as the percentage of students
+    selecting the factor as having contributed to their early
+    exit. The thick and thin lines around each median value represent
+    the 50\% and 95\% credible intervals, respectively.}
+    \label{fig:subgroups1}
+  \end{figure*}
+
+    
+\begin{figure*}[!ht]
+  \includegraphics[width = \linewidth]{ranked_posterior_groups_lines_combined_2.pdf}
+  \caption[Factors contributing to early exit from college, by
+  groups]{Each row represents a cited factor in early exit. The center
+    shape represents the median of the poststratified posterior
+    density, which is interpretable as the percentage of students
+    selecting the factor as having contributed to their early
+    exit. The thick and thin lines around each median value represent
+    the 50\% and 95\% credible intervals, respectively.}
+    \label{fig:subgroups2}
+\end{figure*}
+
+% ------------------------------------------------------------------------------
+% APPENDIX
+% ------------------------------------------------------------------------------
+% \clearpage
+% \processdelayedfloats
+% \clearpage
+
+\clearpage
+\appendix
+
+\renewcommand\thetable{A.\arabic{table}}  
+\section*{}
+\setcounter{table}{0}
+
+\renewcommand\thefigure{A.\arabic{figure}}  
+\section*{}                     
+\setcounter{figure}{0}
+
+% ==============================================================================
+% IPEDS comparison
+% ==============================================================================
+
+{\footnotesize
+  \input{\tabdir/ipeds1.tex}
+}
+\clearpage
+{\footnotesize
+  \input{\tabdir/ipeds2.tex}
+}
+\clearpage
+% \FloatBarrier
+
+% ==============================================================================
+% TABLE: concordance
+% ==============================================================================
+
+\clearpage
+\input{\tabdir/concord_tab.tex}
+
+% ==============================================================================
+% TABLE: poststrat vs survey means
+% ==============================================================================
+
+\begin{fnslongtable}
+\input{\tabdir/ps_tab.tex}
+\end{fnslongtable}
+
+% ==============================================================================
+% FIGURE: posterior predictive check
+% ==============================================================================
+
+\begin{figure*}[!ht]          
+  \includegraphics[width = \linewidth]{posterior_predictive_check_counts.pdf}
+  \caption[Posterior predictive check]{Posterior predictive
+    distributions (histogram) with observed counts of students who
+    clicked an option (vertical line), each facet representing a
+    unique survey choice and model. Bayesian $p$-values show
+    $Pr(T(y^{rep},\theta) \geq T(y,\theta)\mid y)$, the proportion of
+    simulated draws (4,000 for each facet) greater than or equal to
+    the observed count. A concordance for question number and name can
+    be found in Table \ref{tab:concord}.}
+  \label{fig:pp_check}
+\end{figure*}
+
+% ==============================================================================
+% STAN: Stan file
+% ==============================================================================
+
+\clearpage
+\section*{Stan file}
+{\scriptsize
+  \verbatiminput{\stndir/mrp.stan}
+}
+
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% END DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+

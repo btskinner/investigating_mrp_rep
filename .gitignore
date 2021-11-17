@@ -1,0 +1,52 @@
+# .gitignore
+
+# -------------
+# folders
+# -------------
+/data
+
+# -------------
+# TeX
+# -------------
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fff
+*.fls
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.run.xml
+*.snm
+*.toc
+*.ttt
+
+# -------------
+# R
+# -------------
+*.Rhistory
+*.Rproj
+
+# -------------
+# compiled
+# -------------
+*.o
+*.hpp
+mrp
+mrp_threads
+!mrp.stan
+
+# -------------
+# MacOS
+# -------------
+*.DS_Store
+
+# -------------
+# MSWord
+# -------------
+*.doc
+*.docx
