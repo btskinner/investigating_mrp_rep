@@ -22,14 +22,14 @@ make
 2. Run the following scripts in order from the `./scripts/r`
    directory:
    
-1. `get_packages.r`
-1. `get_data.r`
-1. `make_mrp_data.r`
-1. `fit_stan.r`
-1. `poststratify.r`
-1. `make_figures.r`
-1. `make_tables.r`
-1. `checks.r`
+   1. `get_packages.r`
+   1. `get_data.r`
+   1. `make_mrp_data.r`
+   1. `fit_stan.r`
+   1. `poststratify.r`
+   1. `make_figures.r`
+   1. `make_tables.r`
+   1. `checks.r`
 
 And then compile the tables and figures in the `docs` directory using:
 
