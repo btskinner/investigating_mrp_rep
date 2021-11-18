@@ -469,7 +469,9 @@ if (file.exists(file.path(ext_dir, "unitid_list.RDS"))) {
     ## for the RCT
     rct_unitid <- c("132709", "134495", "135717", "136358", "138187")
     ## HD file
-  hd <- read_csv(unzip(file.path(ext_dir, "HD2019.zip"), "hd2019.csv"),
+  hd <- read_csv(file.path(ext_dir,
+                           unzip(file.path(ext_dir, "HD2019.zip"), "hd2019.csv",
+                                 exdir = ext_dir)),
                  show_col_types = FALSE) |>
         rename_all(tolower) |>
         filter(carnegie == 40, control == 1, pseflag == 1)
@@ -487,7 +489,9 @@ if (file.exists(file.path(ext_dir, "unitid_list.RDS"))) {
 if (file.exists(file.path(ext_dir, "ef.RDS"))) {
     ef <- readRDS(file.path(ext_dir, "ef.RDS"))
 } else {
-  ef <- read_csv(unzip(file.path(ext_dir, "EFFY2019.zip"), "effy2019_rv.csv"),
+  ef <- read_csv(file.path(ext_dir,
+                           unzip(file.path(ext_dir, "EFFY2019.zip"), "effy2019_rv.csv",
+                                 exdir = ext_dir)),
                  show_col_types = FALSE) |>
     rename_all(tolower) |>
     filter(unitid %in% unitid_list[["all"]], effylev == 2) |>
@@ -509,9 +513,11 @@ if (file.exists(file.path(ext_dir, "ef.RDS"))) {
 if (file.exists(file.path(ext_dir, "sf.RDS"))) {
     sf <- readRDS(file.path(ext_dir, "sf.RDS"))
 } else {
-  sf <- read_csv(unzip(file.path(ext_dir, "SFA1819.zip"), "sfa1819.csv"),
-                   show_col_types = FALSE) |>
-        rename_all(tolower) |>
+  sf <- read_csv(file.path(ext_dir,
+                           unzip(file.path(ext_dir, "SFA1819.zip"), "sfa1819.csv",
+                                 exdir = ext_dir)),
+                 show_col_types = FALSE) |>
+    rename_all(tolower) |>
         filter(unitid %in% unitid_list[["all"]]) |>
         select(unitid, npist2, upgrnta, upgrntp, anyaidp)
     ## save for future
@@ -522,8 +528,10 @@ if (file.exists(file.path(ext_dir, "sf.RDS"))) {
 if (file.exists(file.path(ext_dir, "gr.RDS"))) {
     gr <- readRDS(file.path(ext_dir, "gr.RDS"))
 } else {
-  gr <- read_csv(unzip(file.path(ext_dir, "GR2019.zip"), "gr2019.csv"),
-                   show_col_types = FALSE) |>
+  gr <- read_csv(file.path(ext_dir,
+                           unzip(file.path(ext_dir, "GR2019.zip"), "gr2019.csv",
+                                 exdir = ext_dir)),
+                 show_col_types = FALSE) |>
         rename_all(tolower) |>
         filter(unitid %in% unitid_list[["all"]],
                line == "29A" | line == "50") |>
@@ -556,8 +564,10 @@ if (file.exists(file.path(ext_dir, "gr.RDS"))) {
 if (file.exists(file.path(ext_dir, "cp.RDS"))) {
     cp <- readRDS(file.path(ext_dir, "cp.RDS"))
 } else {
-  cp <- read_csv(unzip(file.path(ext_dir, "C2019_C.zip"), "c2019_c_rv.csv"),
-                   show_col_types = FALSE) |>
+  cp <- read_csv(file.path(ext_dir,
+                           unzip(file.path(ext_dir, "C2019_C.zip"), "c2019_c_rv.csv",
+                                 exdir = ext_dir)),
+                 show_col_types = FALSE) |>
         rename_all(tolower) |>
         filter(unitid %in% unitid_list[["all"]], awlevelc == "03") |>
         select(-starts_with("x")) |>
