@@ -48,25 +48,13 @@ The following restricted data files are required:
 
 To access these files, see the included file, `ACCESSING_RESTRICTED_DATA.md`.
 
-### Included
-The following included files are required:
+### Created
+The following file is created by `get_data.R`:
 
 1. `second_level_df.rds`
 
-### To be downloaded
-The following IPEDS data files are required:
-
-1. **`HD2019.zip`**: `hd2019.csv`
-1. **`EFFY2019.zip`**: `effy2019_rv.csv`
-1. **`SFA1819.zip`**: `sfa1819.csv`
-1. **`GR2019.zip`**: `gr2019.csv`
-1. **`C2019_C.zip`**: `c2019_c_rv.csv`
-
-The second file in each item can be unzipped from the first, which can be
-downloaded from
-[https://nces.ed.gov/ipeds/datacenter/DataFiles.aspx]() and placed
-into `./data/external`
-
+A number of intermediate files from IPEDS and the BLS will be
+downloaded in the process.
 
 
 
