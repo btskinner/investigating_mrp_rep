@@ -6,9 +6,19 @@
 !data/
 data/*
 !/data/README.md
+
+!data/clean
+data/clean/*
 !/data/clean/README.md
+
+!data/external/
+data/external/*
 !/data/external/README.md
+
+!data/estimates/
+data/estimates/*
 !/data/estimates/README.md
+
 /tables/*.tex
 
 # -------------
