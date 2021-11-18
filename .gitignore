@@ -21,6 +21,8 @@ data/estimates/*
 
 /tables/*.tex
 
+/scripts/*.csv
+
 # -------------
 # TeX
 # -------------
