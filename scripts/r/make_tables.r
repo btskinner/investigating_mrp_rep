@@ -544,15 +544,15 @@ if (file.exists(file.path(ext_dir, "gr.RDS"))) {
                     values_from = c(grtotlt, grtotlm, graiant, grasiat,
                                     grbkaat, grhispt, grnhpit, grwhitt,
                                     gr2mort)) |>
-        mutate(tot_gr_pct = grtotlt_29A / grtotlt_10 * 100,
-               men_gr_pct = grtotlm_29A / grtotlm_10 * 100,
-               aian_gr_pct = graiant_29A / graiant_10 * 100,
-               asia_gr_pct = grasiat_29A / grasiat_10 * 100,
-               bkaa_gr_pct = grbkaat_29A / grbkaat_10 * 100,
-               hisp_gr_pct = grhispt_29A / grhispt_10 * 100,
-               nhpi_gr_pct = grnhpit_29A / grnhpit_10 * 100,
-               whit_gr_pct = grwhitt_29A / grwhitt_10 * 100,
-               tmor_gr_pct = gr2mort_29A / gr2mort_10 * 100) |>
+        mutate(tot_gr_pct = grtotlt_29A / grtotlt_50 * 100,
+               men_gr_pct = grtotlm_29A / grtotlm_50 * 100,
+               aian_gr_pct = graiant_29A / graiant_50 * 100,
+               asia_gr_pct = grasiat_29A / grasiat_50 * 100,
+               bkaa_gr_pct = grbkaat_29A / grbkaat_50 * 100,
+               hisp_gr_pct = grhispt_29A / grhispt_50 * 100,
+               nhpi_gr_pct = grnhpit_29A / grnhpit_50 * 100,
+               whit_gr_pct = grwhitt_29A / grwhitt_50 * 100,
+               tmor_gr_pct = gr2mort_29A / gr2mort_50 * 100) |>
         select(unitid, ends_with("pct")) |>
         mutate(across(ends_with("pct"), ~ replace(.x, is.nan(.x), 0)))
     ## save for future
