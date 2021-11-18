@@ -3,7 +3,12 @@
 # -------------
 # folders
 # -------------
-/data
+!data/
+data/*
+!/data/README.md
+!/data/clean/README.md
+!/data/external/README.md
+!/data/estimates/README.md
 /tables/*.tex
 
 # -------------
