@@ -75,8 +75,7 @@ TEX_AUX := $(addprefix $(DIR_DOC)/, *.aux *.bbl *.bcf *.blg \
 .PHONY: all
 all: setup data analysis output
 
-# .PHONY: data			
-data_get: $(DAT_SECLV)
+.PHONY: data data_get		
 data_stan: $(DAT_RSTAN)
 data: data_get data_stan
 
@@ -100,13 +99,13 @@ setup: $(DIR_R)/get_packages.R
 	@Rscript $<
 	@echo ""
 
-# --- data ---------------------------------------
-
-$(DAT_SECLV): $(DIR_R)/get_data.R $(MACROS)
+data_get: $(DIR_R)/get_data.R $(MACROS)
 	@echo "\n==> Munging required external data\n"
 	@mkdir -p $(DIR_CLEAN)
 	@Rscript $< $(DIR_ROOT)
 	@echo ""
+
+# --- data ---------------------------------------
 
 $(DAT_RSTAN): $(DIR_R)/make_mrp_data.R $(DAT_STATA) $(MACROS)
 	@echo "\n==> Setting up data for Stan: R\n"
