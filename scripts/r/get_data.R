@@ -177,8 +177,6 @@ df <- df %>%
 ## save
 saveRDS(df, file.path(dat_dir, sl_dat_clean))
 
-## message("- External data already downloaded and ready to go!")
-
 ## -----------------------------------------------------------------------------
 ## END SCRIPT
 ################################################################################
